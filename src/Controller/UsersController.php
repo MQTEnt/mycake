@@ -12,6 +12,7 @@ class UsersController extends AppController
     }
     public function index()
     {
+        $this->set('curUserEmail', $this->Auth->user('email'));
         $this->set('users', $this->Users->find('all'));
     }
     public function add()
@@ -39,7 +40,6 @@ class UsersController extends AppController
             $this->Flash->error(__('Invalid email or password, try again'));
         }
     }
-
     public function logout()
     {
         return $this->redirect($this->Auth->logout());

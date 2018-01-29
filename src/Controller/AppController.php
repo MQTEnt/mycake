@@ -70,6 +70,6 @@ class AppController extends Controller
     }
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']); //Allow to access without login
+        $this->Auth->allow(['index', 'view', 'display', 'logout']); //Allow to access without login
     }
 }
