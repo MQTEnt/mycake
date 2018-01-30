@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Validation\Validator;
+// use Cake\View\View;
 
 class UsersController extends AppController
 {
@@ -17,7 +18,12 @@ class UsersController extends AppController
         $this->set('users', $this->Users->find('all'));
     }
     public function add()
-    {
+    {   
+        //Render with custom view
+        // $view = new View($this->request);
+        // $this->set('user', 'abc');
+        // $html = $view->render('Users\add');
+
     	$user = $this->Users->newEntity();
     	if ($this->request->is('post')) //Check method POST
     	{
@@ -29,6 +35,9 @@ class UsersController extends AppController
     		$this->Flash->error(__('Unable to add your user.'));
     	}
     	$this->set('user', $user);
+
+        // Render view without default layout
+        // $this->viewBuilder()->autoLayout(false);
     }
     public function view($id)
     {

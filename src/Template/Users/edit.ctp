@@ -3,15 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Edit user</title>
-	<style>
-		#main{
-			width: 80%;
-			margin: 100px auto;
-		}
-		h1{
-			text-align: center;
-		}
-	</style>
+	<link rel="stylesheet" href="/css/my-style.css">
 </head>
 <body>
 	<div id="main">
