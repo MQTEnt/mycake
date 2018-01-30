@@ -56,7 +56,11 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-
+    //User-Product
+    $routes->connect('/user-product/:id', 
+        ['controller' => 'Users', 'action' => 'getProductsByUserId'], 
+        ['id' => '\d+', 'pass' => ['id']]
+    );
 
     /**
      * Connect catchall routes for all controllers.

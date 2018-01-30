@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Validation\Validator;
-// use Cake\View\View;
+use Cake\View\View;
 
 class UsersController extends AppController
 {
@@ -14,7 +14,6 @@ class UsersController extends AppController
     }
     public function index()
     {
-        $this->set('curUserEmail', $this->Auth->user('email'));
         $this->set('users', $this->Users->find('all'));
     }
     public function add()
@@ -83,5 +82,15 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
+    public function getProductsByUserId($id){
+        // or $id = $this->request->getParam('id');
+        $user = $this->Users->findById($id)->contain(['Products'])->first();
+
+        $this->set('user', $user);
+        $this->set('products', $user->products);
+
+        $view = new View($this->request);
+        $this->viewBuilder()->template('user_product');
+    }
 }
 ?>
