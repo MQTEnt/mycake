@@ -24,6 +24,10 @@ class UsersController extends AppController
         // $this->set('user', 'abc');
         // $html = $view->render('Users\add');
 
+        // Render view without default layout (Notice handle Flash Error)
+        // $this->viewBuilder()->autoLayout(false);
+
+
     	$user = $this->Users->newEntity();
     	if ($this->request->is('post')) //Check method POST
     	{
@@ -35,9 +39,6 @@ class UsersController extends AppController
     		$this->Flash->error(__('Unable to add your user.'));
     	}
     	$this->set('user', $user);
-
-        // Render view without default layout
-        // $this->viewBuilder()->autoLayout(false);
     }
     public function view($id)
     {
