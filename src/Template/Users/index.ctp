@@ -35,7 +35,7 @@
 			<?php foreach ($users as $user): ?>
 		    <tr>
 		        <td><?= $user->id ?></td>
-		       	<td><?= $user->email ?></td>
+		       	<td><?= $this->Html->link($user->email, ['action' => 'view', $user->id]) ?></td>
 		        <td>
 		            <?= $this->Form->postLink(
 		                'Delete',
