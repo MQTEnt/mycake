@@ -42,7 +42,8 @@ class UsersController extends AppController
     public function view($id)
     {
         $user = $this->Users->get($id);
-        $this->set(compact('user'));
+        $roles = $this->Users->findById($id)->contain(['roles'])->first()->roles;
+        $this->set(compact('user', 'roles'));
     }
     public function edit($id = null)
     {

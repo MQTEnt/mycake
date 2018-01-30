@@ -9,6 +9,10 @@ class UsersTable extends Table
     public function initialize(array $config)
     {
         $this->hasMany('Products');
+
+        $this->belongsToMany('Roles', [
+            'joinTable' => 'role_user',
+        ]);
     }
 	public function validationDefault(Validator $validator) {
         $validator->add('email', 

@@ -9,13 +9,22 @@
 			margin: 100px auto;
 			text-align: center;
 		}
+		li{
+			list-style-type: none;
+		}
 	</style>
 </head>
 <body>
 	<div id="main">
 		<h1>Detail User</h1>
-		<h4>ID: <?= h($user->id) ?></h1>
-		<p>Email: <?= h($user->email) ?></p>
+		<h4>ID: <?= $user->id ?></h1>
+		<p>Email: <?= $user->email ?></p>
+		<ul>
+			<?php
+				foreach($roles as $role)
+					echo '<li> &#9745; '.$role->name.'</li>'
+			?>
+		</ul>
 	</div>
 </body>
 </html>
