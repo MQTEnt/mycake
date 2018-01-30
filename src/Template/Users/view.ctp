@@ -21,8 +21,8 @@
 		<p>Email: <?= $user->email ?></p>
 		<ul>
 			<?php
-				foreach($roles as $role)
-					echo '<li> &#9745; '.$role->name.'</li>'
+				foreach($role_names as $name)
+					echo '<li> &#9745; '.$name.'</li>'
 			?>
 		</ul>
 	</div>

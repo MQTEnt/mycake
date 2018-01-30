@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Validation\Validator;
 use Cake\View\View;
+use Cake\Collection\Collection;
+use Cake\Utility\Hash;
 
 class UsersController extends AppController
 {
@@ -43,7 +45,10 @@ class UsersController extends AppController
     {
         $user = $this->Users->get($id);
         $roles = $this->Users->findById($id)->contain(['roles'])->first()->roles;
-        $this->set(compact('user', 'roles'));
+
+        $role_names = (new Collection($roles))->extract('name');
+        
+        $this->set(compact('user', 'role_names'));
     }
     public function edit($id = null)
     {
