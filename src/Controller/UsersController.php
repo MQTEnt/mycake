@@ -9,14 +9,23 @@ use Cake\Utility\Hash;
 
 class UsersController extends AppController
 {
+    public $paginate = [
+        'limit' => 5,
+        'order' => [
+            'Users.id' => 'asc'
+        ]
+    ];
+
 	public function initialize()
     {
         parent::initialize();
+        $this->loadComponent('Paginator');
         $this->loadComponent('Flash'); // Include the FlashComponent
     }
     public function index()
     {
-        $this->set('users', $this->Users->find('all'));
+        $users = $this->paginate($this->Users);
+        $this->set('users', $users);
     }
     public function add()
     {   

@@ -14,6 +14,17 @@
 		#main h4{
 			text-align: right;
 		}
+		#main ul{
+			text-align: center;
+		}
+		#main li{
+			margin-right: 10px;
+			display: inline
+		}
+		#main li.active{
+			text-decoration: underline;
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body>
@@ -50,6 +61,9 @@
 		    </tr>
     		<?php endforeach; ?>
 		</table>
+		<ul>
+			<?php  echo $this->Paginator->numbers(['first' => 'First page']); ?>
+		</ul>
 	</div>
 </body>
 </html>
