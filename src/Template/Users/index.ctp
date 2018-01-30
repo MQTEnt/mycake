@@ -18,7 +18,7 @@
 			text-align: center;
 		}
 		#main li{
-			margin-right: 10px;
+			margin: 0 10px;
 			display: inline
 		}
 		#main li.active{
@@ -62,7 +62,11 @@
     		<?php endforeach; ?>
 		</table>
 		<ul>
-			<?php  echo $this->Paginator->numbers(['first' => 'First page']); ?>
+			<?php  echo $this->Paginator->numbers([
+						'before' => $this->Paginator->prev('«'),
+						'after' => $this->Paginator->next('»')
+					]); 
+			?>
 		</ul>
 	</div>
 </body>
