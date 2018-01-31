@@ -20,7 +20,7 @@ class ProductsController extends AppController
         parent::beforeFilter($event);
 
         //Allow action to access without login
-        $this->Auth->allow(['loadCreateView']);
+        $this->Auth->allow(['loadCreateView', 'delete', 'edit', 'add']);
     }
     public function index()
     {
@@ -57,30 +57,39 @@ class ProductsController extends AppController
             'product' => $product,
             '_serialize' => ['message', 'product']
         ]);
+
+        //View input data from client
+        //debug($this->request->data); exit;
     }
 
     public function edit($id)
     {
-        $recipe = $this->Recipes->get($id);
+        //Client send with body: x-www-form-urlencoded
+        $product = $this->Products->get($id);
         if ($this->request->is(['post', 'put'])) {
-            $recipe = $this->Recipes->patchEntity($recipe, $this->request->getData());
-            if ($this->Recipes->save($recipe)) {
+            $this->Products->patchEntity($product, $this->request->getData());
+            if ($this->Products->save($product)) {
                 $message = 'Saved';
             } else {
                 $message = 'Error';
             }
         }
+
         $this->set([
             'message' => $message,
-            '_serialize' => ['message']
+            'product' => $product,
+            '_serialize' => ['message', 'product']
         ]);
+
+        //View input data from client
+        //debug($this->request->data); exit;
     }
 
     public function delete($id)
     {
-        $recipe = $this->Recipes->get($id);
+        $product = $this->Products->get($id);
         $message = 'Deleted';
-        if (!$this->Recipes->delete($recipe)) {
+        if (!$this->Products->delete($product)) {
             $message = 'Error';
         }
         $this->set([
