@@ -3,8 +3,9 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Validation\Validator;
-// use Cake\View\View;
+use Cake\View\View;
 use Cake\Controller\Component\RequestHandlerComponent;
+use Cake\Event\Event;
 
 class ProductsController extends AppController
 {
@@ -13,7 +14,14 @@ class ProductsController extends AppController
         parent::initialize();
         $this->loadComponent('RequestHandler');
     }
+    public function beforeFilter(Event $event)
+    {
+        //Use beforeFilter of AppController
+        parent::beforeFilter($event);
 
+        //Allow action to access without login
+        $this->Auth->allow(['loadCreateView']);
+    }
     public function index()
     {
         // Set the view vars that have to be serialized.
@@ -31,18 +39,23 @@ class ProductsController extends AppController
         ]);
     }
 
+    public function loadCreateView(){
+        $view = new View($this->request);
+        $this->viewBuilder()->template('create');
+    }
+
     public function add()
     {
-        $recipe = $this->Recipes->newEntity($this->request->getData());
-        if ($this->Recipes->save($recipe)) {
+        $product = $this->Products->newEntity($this->request->getData());
+        if ($this->Products->save($product)) {
             $message = 'Saved';
         } else {
             $message = 'Error';
         }
         $this->set([
             'message' => $message,
-            'recipe' => $recipe,
-            '_serialize' => ['message', 'recipe']
+            'product' => $product,
+            '_serialize' => ['message', 'product']
         ]);
     }
 

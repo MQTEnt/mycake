@@ -28,15 +28,9 @@ class UsersController extends AppController
         $this->set('users', $users);
     }
     public function add()
-    {   
-        //Render with custom view
-        // $view = new View($this->request);
-        // $this->set('user', 'abc');
-        // $html = $view->render('Users\add');
-
+    {
         // Render view without default layout (Notice handle Flash Error)
         // $this->viewBuilder()->autoLayout(false);
-
 
     	$user = $this->Users->newEntity();
     	if ($this->request->is('post')) //Check method POST
@@ -104,6 +98,7 @@ class UsersController extends AppController
         $this->set('user', $user);
         $this->set('products', $user->products);
 
+        //Render with custom view
         $view = new View($this->request);
         $this->viewBuilder()->template('user_product');
     }
