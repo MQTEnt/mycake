@@ -20,7 +20,7 @@ class ProductsController extends AppController
         parent::beforeFilter($event);
 
         //Allow action to access without login
-        $this->Auth->allow(['loadCreateView', 'delete', 'edit', 'add']);
+        $this->Auth->allow(['loadCreateView']);
     }
     public function index()
     {
@@ -40,6 +40,7 @@ class ProductsController extends AppController
     }
 
     public function loadCreateView(){
+        $this->viewBuilder()->autoLayout(false);
         $view = new View($this->request);
         $this->viewBuilder()->template('create');
     }

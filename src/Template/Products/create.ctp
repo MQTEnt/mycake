@@ -1,31 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Create view</title>
-</head>
-<body>
-	<p>Hello World</p>
-	
-	<button id="add">Add new</button>
-	<script src="/js/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$('#add').click(function(){
-				$.post("/products.json",
-				{
-					name: "AUTH Ajax new name v2",
-					description : "Ajax new description",
-					user_id: 10
-				},
-				function(data,status){
-					console.log('Data: ');
-					console.log(data);
-					console.log('Status: ')
-					console.log(status);
-				});
-			});
-		});
-	</script>
-</body>
-</html>
+<?php
+$this->extend('/Layout/default');
+
+//Include script in head tag
+//$this->Html->script('my-script', ['block' => true]);
+
+$this->assign('title', 'My Title');
+
+?>
+
+<?php $this->start('my-content'); ?>
+
+<p>My Content</p>
+
+<?php $this->end(); ?>
+
+
+<!--
+/*************************************************************
+The remaining content will be available as the 'content' block
+In the parent view (/Layout/default)
+**************************************************************/
+-->
+
+<p>Remaining content</p>
+
