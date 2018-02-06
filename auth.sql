@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2018 at 08:23 AM
+-- Generation Time: Feb 06, 2018 at 05:20 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -25,6 +25,67 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `files`
+--
+
+CREATE TABLE `files` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `files`
+--
+
+INSERT INTO `files` (`id`, `name`, `path`, `created`, `modified`) VALUES
+(1, 'abc.1', 'uploads/files/', '2018-01-31 06:43:47', '2018-01-31 08:37:56'),
+(2, 'beforeFilter vs initialize.txt', 'uploads/files/', '2018-01-31 06:46:41', '0000-00-00 00:00:00'),
+(3, 'Data Validation.txt', 'uploads/files/', '2018-01-31 06:51:29', '0000-00-00 00:00:00'),
+(4, 'Data Validation.txt', 'uploads/files/', '2018-01-31 06:57:27', '0000-00-00 00:00:00'),
+(5, 'Data Validation.txt', 'uploads/files/', '2018-01-31 06:58:19', '0000-00-00 00:00:00'),
+(6, 'Daily Report.txt', 'uploads/files/', '2018-01-31 06:58:51', '0000-00-00 00:00:00'),
+(7, 'Data Validation.txt', 'uploads/files/', '2018-01-31 06:59:36', '0000-00-00 00:00:00'),
+(8, 'Daily Report.txt', 'uploads/files/', '2018-01-31 07:00:38', '0000-00-00 00:00:00'),
+(9, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:03:10', '0000-00-00 00:00:00'),
+(10, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:03:18', '0000-00-00 00:00:00'),
+(11, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:06:49', '0000-00-00 00:00:00'),
+(12, 'Daily Report.txt', 'uploads/files/', '2018-01-31 07:06:55', '0000-00-00 00:00:00'),
+(13, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:16:46', '0000-00-00 00:00:00'),
+(14, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:16:51', '0000-00-00 00:00:00'),
+(15, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:17:06', '0000-00-00 00:00:00'),
+(16, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:17:18', '0000-00-00 00:00:00'),
+(17, 'Daily Report.txt', 'uploads/files/', '2018-01-31 07:17:24', '0000-00-00 00:00:00'),
+(18, 'Data Validation.txt', 'uploads/files/', '2018-01-31 07:18:51', '0000-00-00 00:00:00'),
+(19, 'Update.exe', 'uploads/files/', '2018-01-31 07:20:28', '0000-00-00 00:00:00'),
+(20, 'Update.exe', 'uploads/files/', '2018-01-31 07:25:17', '0000-00-00 00:00:00'),
+(21, 'Update.exe', 'uploads/files/', '2018-01-31 07:27:15', '0000-00-00 00:00:00'),
+(22, 'asasas.jpg', 'uploads/files/', '2018-01-31 07:31:47', '0000-00-00 00:00:00'),
+(23, 'Update.exe', 'uploads/files/', '2018-01-31 07:33:15', '0000-00-00 00:00:00'),
+(24, 'view.ctp', 'uploads/files/', '2018-01-31 07:33:35', '0000-00-00 00:00:00'),
+(25, 'asasas.jpg', 'uploads/files/', '2018-01-31 07:42:31', '0000-00-00 00:00:00'),
+(26, 'asasas.jpg', 'uploads/files/', '2018-01-31 07:44:33', '0000-00-00 00:00:00'),
+(27, 'asasas.jpg', 'uploads/files/', '2018-01-31 07:45:20', '0000-00-00 00:00:00'),
+(28, 'aaaaaaaaaaaaaaaaaaaa.jpg', 'uploads/files/', '2018-01-31 07:47:01', '0000-00-00 00:00:00'),
+(29, 'dfsdfsdfsdf.jpg', 'uploads/files/', '2018-01-31 07:47:50', '0000-00-00 00:00:00'),
+(30, 'dfsdfsdfsdf.jpg', 'uploads/files/', '2018-01-31 07:49:59', '0000-00-00 00:00:00'),
+(31, '11111111111.txt', 'uploads/files/', '2018-01-31 07:51:33', '0000-00-00 00:00:00'),
+(32, '11111111111.txt', 'uploads/files/', '2018-01-31 07:59:47', '0000-00-00 00:00:00'),
+(33, '11111111111.txt', 'uploads/files/', '2018-01-31 08:05:29', '0000-00-00 00:00:00'),
+(34, '11111111111.txt', 'uploads/files/', '2018-01-31 08:06:16', '0000-00-00 00:00:00'),
+(35, '222222222222.txt', 'uploads/files/', '2018-01-31 08:06:27', '0000-00-00 00:00:00'),
+(36, '222222222222.jpg', 'uploads/files/', '2018-01-31 08:10:47', '0000-00-00 00:00:00'),
+(37, '333333333.jpg', 'uploads/files/', '2018-01-31 08:10:58', '0000-00-00 00:00:00'),
+(38, '4444444444444.jpg', 'uploads/files/', '2018-01-31 08:11:07', '0000-00-00 00:00:00'),
+(39, '6666666.jpg', 'uploads/files/', '2018-01-31 08:19:06', '0000-00-00 00:00:00'),
+(40, '6666666.jpg', 'uploads/files/', '2018-01-31 08:22:10', '0000-00-00 00:00:00'),
+(41, '7777777777777.jpg', 'uploads/files/', '2018-01-31 08:22:19', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -40,9 +101,17 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `user_id`) VALUES
-(2, 'aa', 'aaa', 10),
 (3, 'aaaa', 'adasdasd', 10),
-(4, 'bbbb', 'bbbbbbbbbbbbb', 10);
+(4, 'bbbb', 'bbbbbbbbbbbbb', 10),
+(5, 'ggggggg', 'description.gggggggg', 10),
+(6, 'hhhhhhhhhhh', 'description.hhhhhhhhhhh', 10),
+(7, 'Ajax new name', 'Ajax new description', 10),
+(8, 'new name abc', 'new description', 10),
+(9, 'AUTH Ajax new name', 'Ajax new description', 10),
+(11, 'AUTH Ajax new name', 'Ajax new description', 10),
+(14, 'abc newwwwwwwwww', 'abc desc', 10),
+(15, 'abc newwwwwwwwww', 'abc desc', 10),
+(16, 'abc newwwwwwwwww', 'abc desc', 10);
 
 -- --------------------------------------------------------
 
@@ -101,7 +170,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`) VALUES
-(9, 'newwwwwww@gmail.com', '$2y$10$zHEGIsyNzay/zfsYSxr4CO4zfqHosNDLMEcYFj7mqCwocd/ifapJ6'),
+(9, 'newwwwwww123@gmail.com', '$2y$10$zHEGIsyNzay/zfsYSxr4CO4zfqHosNDLMEcYFj7mqCwocd/ifapJ6'),
 (10, 'new100@gmail.com', '$2y$10$Iff5IP4Msw941.gCwf36zuUIdR5UTnxoqIrHf41VMPPOuZ7MSPk0m'),
 (11, 'newe5edit22222@gmail.com', '$2y$10$eBuAJkC6BWQDggrQ77SAkuvKO5tANXOprfwTEt7l1x0UA9fzMx1ou'),
 (13, 'n@gmail.com', '$2y$10$juuX4fL0lQanTpKLnGqeW.22oqp6B7FePTZ6AjqWYI38sbxM/Ou96'),
@@ -121,6 +190,12 @@ INSERT INTO `users` (`id`, `email`, `password`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -156,10 +231,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `files`
+--
+ALTER TABLE `files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `roles`
